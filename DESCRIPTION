@@ -1,11 +1,11 @@
 Package: TextContext
 Type: Package
-Title: Work with Text Context
+Title: Search for Context in Text
 Version: 0.1.0
 Author: Joshua Hruzik
 Maintainer: Joshua Hruzik <joshua.hruzik@gmail.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package is meant to be used in text mining applications whenever the user is interested to know about the presence of A within the context of B and has only limited knowledge of regular expressions. It makes the construction of such regular expressions easy and assumes no knowledge of regular expression.
+    In general, it is assumed that the user has two complex entities (e.g. topics) which are represented as sets of words and wants to know wheter either one entity is near the other entity within given text strings.
 License: MIT
 Encoding: UTF-8
 LazyData: true
