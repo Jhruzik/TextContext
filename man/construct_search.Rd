@@ -2,7 +2,7 @@
 % Please edit documentation in R/Functions.R
 \name{construct_search}
 \alias{construct_search}
-\title{Construct a context search}
+\title{Construct a Context Search}
 \usage{
 construct_search(entityA, entityB, fill_length, length_metric = "words",
   direction = "bi")
@@ -12,21 +12,21 @@ construct_search(entityA, entityB, fill_length, length_metric = "words",
 
 \item{entityB}{A string vector containing all the words that make up the second entity.}
 
-\item{fill_length}{A numeric value indicating how far the two entities are allowed to be spread out.}
+\item{fill_length}{A numeric value indicating how far away the two entities are allowed to be from each other.}
 
-\item{length_metric}{Either one of "words" or "chars", defining whether fill_length represents words or characters.}
+\item{length_metric}{Either one of "words" or "chars". If "words", then fill_length represents the number of words. If "chars", fill_length represents the number of characters, including white space characters.}
 
-\item{direction}{Either "bi", "right", or "left". If "bi" is selected, the search will allow for entityA followed by entityB or vice versa. If "right" is specified, entityA if followed by entityB, while "left" looks for entityB followed by entityA.}
+\item{direction}{Either "bi", "right", or "left". If "bi" is selected, the search will allow for entityA followed by entityB or vice versa. If "right" is specified, entityA must be followed by entityB, while "left" looks for entityB followed by entityA.}
 }
 \value{
 A string value representing a regular expression.
 }
 \description{
-This function is used to construct a context search for later use inside the \code{\link{check_context}} function. The basic idea is that you have two distinct entities (entityA and entityB) which are defined by a set of words. Both entities are seperated by a characters, or words repectively.
+This function is used to construct a string representing a regular expression for later use inside the \code{\link{check_context}} function. The basic idea is that you have two distinct entities (entityA and entityB) which are defined by a set of words. Inside a text, both entities might be seperated by one or more words or characters. The resulting regular expression can be used for further data analysis.
 }
 \examples{
-A <- c("Dog", "Cat", "Bird")
-B <- c("House", "Home", "Appartment")
+A <- c("USA", "Russia", "China")
+B <- c("United Nations", "NATO", "WTO")
 search_w_bi <- construct_search(A, B, 30)
 search_c_bi <- construct_search(A, B, 200,
 "chars")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Functions.R
 \name{check_context}
 \alias{check_context}
-\title{Logical check for context within text}
+\title{Logical Check for Presence Context within Text}
 \usage{
 check_context(text, search, case_sensitive = FALSE)
 }
@@ -11,22 +11,21 @@ check_context(text, search, case_sensitive = FALSE)
 
 \item{search}{The result of a \code{\link{construct_search}} call.}
 
-\item{case_sensitive}{If True, the function will ignore cases for all entities.}
+\item{case_sensitive}{If TRUE, the function will ignore cases for all entities.}
 }
 \value{
-A logical TRUE/FALSE value. If TRUE, the searched context is present within text while FALSE indicates the absence of the defined context.
+A logical TRUE/FALSE value. If TRUE, the searched context is present within text, while FALSE indicates the absence of the defined context.
 }
 \description{
-After constructing a search with \code{\link{construct_search}} you can use this function to do a logical test if the defined context is present within your text.
+After constructing a search with \code{\link{construct_search}} you can use this function to do a logical test of whether or not the defined context is present within your text.
 }
 \examples{
-text <- "This is an example text with WordA and some other stuff.
-Later, there'll be WordD as the second entity."
-A <- c("Cat", "Dog", "Bird")
-B <- c("House", "Home", "Appartment")
+text <- "The USA will intervene. A proposal has been submitted to the United Nations"
+A <- c("USA", "Russia", "China")
+B <- c("United Nations", "WTO", "NATO")
 search <- construct_search(A, B, 50)
 check_context(text, search)
 }
 \seealso{
-\code{\link{construct_search}} for the construction of search parameter.
+\code{\link{construct_search}} for the construction of the search parameter.
 }

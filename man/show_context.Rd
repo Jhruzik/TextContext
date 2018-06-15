@@ -2,10 +2,29 @@
 % Please edit documentation in R/Functions.R
 \name{show_context}
 \alias{show_context}
-\title{Return a snippet that shows the context found.}
+\title{Return a Snippet that Shows the Context found.}
 \usage{
 show_context(text, search)
 }
+\arguments{
+\item{text}{A string value representing the text that is to be searched.}
+
+\item{search}{The result of a \code{\link{construct_search}} call.}
+}
+\value{
+The function will return a sub-string of text which shows you where the context was found. This is just a snippet and does not necessarily include all of the relevant text. This is especially true if more than one word of the defined entity is present within text.
+}
 \description{
-Return a snippet that shows the context found.
+This function can be used to extract a small text excerpt from a text based on a context search constructed with \code{\link{check_context}}. It will show the entire sentence from the first occurance of the first relevant entity to the first sentence of the second entity.
+}
+\examples{
+text <- "There has been a crisis in Fantasia.
+The USA will intervene. A proposal has been submitted to the United Nations"
+A <- c("USA", "Russia", "China")
+B <- c("United Nations", "WTO", "NATO")
+search <- construct_search(A, B, 50)
+check_context(text, search)
+}
+\seealso{
+\code{\link{construct_search}} for the construction of search parameter.
 }
