@@ -3,6 +3,7 @@
 #' This function can be used to extract a small text excerpt from a text based on a context search constructed with \code{\link{check_context}}. It will show the entire sentence from the first occurance of the first relevant entity to the first sentence of the second entity.
 #' @param text A string value representing the text that is to be searched.
 #' @param search The result of a \code{\link{construct_search}} call.
+#' @param case_sensitive If TRUE, the function will ignore cases for all entities.
 #' @return The function will return a sub-string of text which shows you where the context was found. This is just a snippet and does not necessarily include all of the relevant text. This is especially true if more than one word of the defined entity is present within text.
 #' @seealso \code{\link{construct_search}} for the construction of the search parameter.
 #' @examples

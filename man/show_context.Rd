@@ -10,6 +10,8 @@ show_context(text, search, case_sensitive = FALSE)
 \item{text}{A string value representing the text that is to be searched.}
 
 \item{search}{The result of a \code{\link{construct_search}} call.}
+
+\item{case_sensitive}{If TRUE, the function will ignore cases for all entities.}
 }
 \value{
 The function will return a sub-string of text which shows you where the context was found. This is just a snippet and does not necessarily include all of the relevant text. This is especially true if more than one word of the defined entity is present within text.
