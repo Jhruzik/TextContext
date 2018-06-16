@@ -31,7 +31,7 @@ show_context <- function(text, search, case_sensitive = FALSE) {
   #Construct regular expression for sentence extraction
   if (!grepl(paste0("^", first_result), text)) {
 
-    expanded_search <- paste0("(?<=[:.?!])[\\w\\d\\s]*?", first_result, ".*?[.:?!]")
+    expanded_search <- paste0("((?<=[:.?!])|^)[\\w\\d\\s]*?", first_result, ".*?[.:?!]")
 
   }else {
 

@@ -32,8 +32,8 @@ construct_search <- function(entityA, entityB, fill_length, length_metric = "wor
 
   #throw error if regex meta character is in either one entity
   if (any(grepl("[.:!?=$^\\]", entityA)) | any(grepl("[.:!?=$^\\]", entityB))) {
-    stop("Please don't use any special characters inside the words that make up your entities.
-         A special character was found in either both entityA and entityB or in both of them.")
+    warning("Be carefull when using punctuation characters with your words. Those might represent a regular expression.
+            If unsure, abstain from using punctuation characters.")
   }
 
   #paste single words into one string
