@@ -12,36 +12,35 @@
 #' B <- c("United Nations", "WTO", "NATO")
 #' search <- construct_search(A, B, 50)
 #' check_context(text, search)
-show_context <- function(text, search) {
+show_context <- function(text, search, case_sensitive = FALSE) {
 
   #get the raw and minimalistic context within text
-  first_result <- stringr::str_extract(text, search)
+  if (case_sensitive == FALSE){
 
-  if (!grepl(paste0("^", first_result), text) & !grepl("[.:!?]$", first_result)) {
+    first_result <- stringr::str_trim(stringr::str_extract(text, stringr::regex(search, ignore_case = TRUE)))
+
+  } else {
+
+    first_result <- stringr::str_trim(stringr::str_extract(text, search))
+
+  }
+
+  first_result <- stringr::str_replace(first_result, "[.:?!]*$", "")#Trim punctuation characters at the end
+
+
+  #Construct regular expression for sentence extraction
+  if (!grepl(paste0("^", first_result), text)) {
 
     expanded_search <- paste0("(?<=[\\.:?!]).*", first_result, ".*?[\\.:?!]")
 
-  }else if (grepl(paste0("^", first_result), text) & !grepl("[.:!?]$", first_result)) {
+  }else {
 
     expanded_search <- paste0(first_result, ".*?[.:?!]")
 
-  }else if (!grepl(paste0("^", first_result), text) & grepl("[.:!?]$", text)) {
-
-    expanded_search <- paste0("(?<=[.:?!]).*", first_result)
-
   }
 
-
-  if (grepl(paste0("^", first_result), text) & grepl("[.:!?]$", text)) {
-
-    context_match <- first_result
-
-  }else {
-
-    context_match <- stringr::str_trim(stringr::str_extract(text, expanded_search))
-
-  }
-
+  #extract text excerpt
+  context_match <- stringr::str_trim(stringr::str_extract(text, expanded_search))
   return(context_match)
 
 }
