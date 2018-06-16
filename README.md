@@ -46,6 +46,6 @@ This package was written to support your every day text mining needs. Its **chec
 
 All of the source code can be used for any private or commercial purpose. Note that this code is still in an early development status and has not yet been submitted to CRAN. Hence, any publication of this code without approval is prohibited.
 
-###Future Development
+### Future Development
 
 If you have an opinion about the code and would like to point out potential errors or flaws, I am more than excited to hear about it. If you are also interested in working on this package, I'll be glad to add you to this repository.
