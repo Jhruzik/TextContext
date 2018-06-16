@@ -1,4 +1,4 @@
-#' Logical Check for Presence Context within Text
+#' Logical check for presence of context within text
 #'
 #' After constructing a search with \code{\link{construct_search}} you can use this function to do a logical test of whether or not the defined context is present within your text.
 #' @param text A string value representing the text that is to be searched.
