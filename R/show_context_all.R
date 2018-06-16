@@ -26,6 +26,7 @@ show_context_all <- function(text, search, case_sensitive = FALSE) {
   }
 
   first_results <- stringr::str_replace(first_results, "[.:?!]*$", "")#Trim punctuation characters at the end
+  first_results <- stringr::str_replace_all(first_results, "([.|()\\^{}+$*?]|\\[|\\])", "\\\\\\1")#Escape all meta characters
 
   #Define function to extract text snippet for every result in first_results
   get_excerpt_local <- function(result) {

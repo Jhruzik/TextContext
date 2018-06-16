@@ -26,12 +26,12 @@ show_context <- function(text, search, case_sensitive = FALSE) {
   }
 
   first_result <- stringr::str_replace(first_result, "[.:?!]*$", "")#Trim punctuation characters at the end
-
+  first_result <- stringr::str_replace_all(first_result, "([.|()\\^{}+$*?]|\\[|\\])", "\\\\\\1")#Escape all meta characters
 
   #Construct regular expression for sentence extraction
   if (!grepl(paste0("^", first_result), text)) {
 
-    expanded_search <- paste0("((?<=[:.?!])|^)[\\w\\d\\s]*?", first_result, ".*?[.:?!]")
+    expanded_search <- paste0("((?<=[:.?!])|^)[^:.?!]*?", first_result, ".*?[.:?!]")
 
   }else {
 
